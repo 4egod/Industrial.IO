@@ -1,68 +1,74 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-	<PropertyGroup>
-		<AssemblyName>Industrial.IO</AssemblyName>
-		<AssemblyVersion>2.$([System.DateTime]::UtcNow.ToString(yy)).$([System.DateTime]::UtcNow.Month).$([System.DateTime]::UtcNow.Day)</AssemblyVersion>
-		<FileVersion>2.$([System.DateTime]::UtcNow.ToString(yy)).$([System.DateTime]::UtcNow.Month).$([System.DateTime]::UtcNow.Day)</FileVersion>
-		<OutputType>Library</OutputType>
-		<RootNamespace>Industrial</RootNamespace>
-		<ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-		<ProductVersion>9.0.21022</ProductVersion>
-		<SchemaVersion>2.0</SchemaVersion>
-		<ProjectGuid>{50FE5684-7AB7-4F1B-AE39-A4FFE36ECD44}</ProjectGuid>
-		<TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
-		<NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
-		<Version>2.$([System.DateTime]::UtcNow.ToString(yy)).$([System.DateTime]::UtcNow.Month).$([System.DateTime]::UtcNow.Day)</Version>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>bin\Debug\</OutputPath>
-		<DefineConstants>DEBUG;MF,TRACE,MF_FRAMEWORK_VERSION_V4_3</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DebugType>pdbonly</DebugType>
-		<Optimize>true</Optimize>
-		<OutputPath>bin\Release\</OutputPath>
-		<DefineConstants>MF,TRACE,MF_FRAMEWORK_VERSION_V4_3</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<ItemGroup>
-		<Compile Include="..\..\Industrial.IO\Exceptions\TimeoutException.cs">
-			<Link>Exceptions\TimeoutException.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\BaudRate.cs">
-			<Link>IO\BaudRate.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\DataBits.cs">
-			<Link>IO\DataBits.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\DialResults.cs">
-			<Link>IO\DialResults.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\Hanshake.cs">
-			<Link>IO\Hanshake.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\IPort.cs">
-			<Link>IO\IPort.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\Parity.cs">
-			<Link>IO\Parity.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\PortTypes.cs">
-			<Link>IO\PortTypes.cs</Link>
-		</Compile>
-		<Compile Include="..\..\Industrial.IO\IO\StopBits.cs">
-			<Link>IO\StopBits.cs</Link>
-		</Compile>
-		<Compile Include="Properties\AssemblyInfo.cs" />
-	</ItemGroup>
-	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-		<WriteLinesToFile File="$(ProjectDir)Properties\AssemblyInfo.cs" Lines="[assembly: System.Reflection.AssemblyVersion(&quot;$(Version)&quot;)]&#xD;&#xA;[assembly: System.Reflection.AssemblyFileVersion(&quot;$(Version)&quot;)]&#xD;&#xA;" Overwrite="true" />
-	</Target>
-	<Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
-	<Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <AssemblyName>Industrial.IO</AssemblyName>
+    <AssemblyVersion>2.$([System.DateTime]::UtcNow.ToString(yy)).$([System.DateTime]::UtcNow.Month).$([System.DateTime]::UtcNow.Day)</AssemblyVersion>
+    <FileVersion>2.$([System.DateTime]::UtcNow.ToString(yy)).$([System.DateTime]::UtcNow.Month).$([System.DateTime]::UtcNow.Day)</FileVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Industrial</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{50FE5684-7AB7-4F1B-AE39-A4FFE36ECD44}</ProjectGuid>
+    <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+    <Version>2.$([System.DateTime]::UtcNow.ToString(yy)).$([System.DateTime]::UtcNow.Month).$([System.DateTime]::UtcNow.Day)</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;MF,TRACE,MF_FRAMEWORK_VERSION_V4_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>MF,TRACE,MF_FRAMEWORK_VERSION_V4_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Industrial.IO\Exceptions\InvalidChecksumException.cs">
+      <Link>Exceptions\InvalidChecksumException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\Exceptions\InvalidResponseException.cs">
+      <Link>Exceptions\InvalidResponseException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\Exceptions\TimeoutException.cs">
+      <Link>Exceptions\TimeoutException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\BaudRate.cs">
+      <Link>IO\BaudRate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\DataBits.cs">
+      <Link>IO\DataBits.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\DialResults.cs">
+      <Link>IO\DialResults.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\Hanshake.cs">
+      <Link>IO\Hanshake.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\IPort.cs">
+      <Link>IO\IPort.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\Parity.cs">
+      <Link>IO\Parity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\PortTypes.cs">
+      <Link>IO\PortTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Industrial.IO\IO\StopBits.cs">
+      <Link>IO\StopBits.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <WriteLinesToFile File="$(ProjectDir)Properties\AssemblyInfo.cs" Lines="[assembly: System.Reflection.AssemblyVersion(&quot;$(Version)&quot;)]&#xD;&#xA;[assembly: System.Reflection.AssemblyFileVersion(&quot;$(Version)&quot;)]&#xD;&#xA;" Overwrite="true" />
+  </Target>
+  <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
