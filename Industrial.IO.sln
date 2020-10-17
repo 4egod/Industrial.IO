@@ -17,6 +17,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Industrial.IO.Ethernet", "I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Industrial.IO.Ethernet.MF", "MF\Industrial.IO.Ethernet\Industrial.IO.Ethernet.MF.csproj", "{16EA4DE9-7978-409C-BD57-C84A4AA9FEFD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{8B37EE53-9DE6-48C1-8EFA-0C5F79E4FF0D}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Industrial.IO.Ethernet.ps1 = Build\Industrial.IO.Ethernet.ps1
+		Build\Industrial.IO.ps1 = Build\Industrial.IO.ps1
+		Build\Industrial.IO.Serial.ps1 = Build\Industrial.IO.Serial.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A82A3B28-2DA7-48F0-ACB2-53E21FE24BFD}"
+	ProjectSection(SolutionItems) = preProject
+		Icon.png = Icon.png
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

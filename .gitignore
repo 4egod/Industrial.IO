@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/MF/Industrial.IO/Properties/AssemblyInfo.cs
+/MF/Industrial.IO.Serial/Properties/AssemblyInfo.cs
+/MF/Industrial.IO.Ethernet/Properties/AssemblyInfo.cs
