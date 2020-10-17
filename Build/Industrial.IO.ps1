@@ -1,10 +1,11 @@
 param([String]$cfg='Release')
+$target = 'Industrial.IO'
+$outdir = 'Bin'
+$path = "../$target/bin/$cfg"
 
 Set-Location $PSScriptRoot
 
-$target = "Industrial.IO"
-
-$path = "../$target/bin/$cfg"
+New-Item -ItemType Directory -Force -Path $outdir 
 
 [array]$files = Get-ChildItem "$path/*.nupkg"
 $file = $files[$files.Length - 1]
